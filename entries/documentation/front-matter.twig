@@ -1,0 +1,66 @@
+permalink: /documentation/front-matter/
+---
+<h1>YAML Front Matter</h1>
+<p>Each entry file may contain front matter in YAML format.</p>
+<p>Front matter is used to set predefined parameters with which entry will be parsed, or to set your own custom variables.</p>
+
+<p>When pressent, front matter must be the first thing in file and delimited from the file's content with three
+consequtive dashes (on their own line):</p>
+<pre>
+layout: default.twig
+permalink: /sub/section/
+---
+&lt;p&gt;entry content&lt;/p&gt;
+</pre>
+
+<h2>Predefined Variables</h2>
+
+<table>
+    <tr>
+        <th width="20%">Variable</th>
+        <th>Description</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td><code>layout</code></td>
+        <td>If set, specifies which layout to use.</td>
+        <td>default.twig</td>
+    </tr>
+    <tr>
+        <td><code>tags</code></td>
+        <td>
+            If set, allows to specify tags attributed to given entry. Tag pages are generated automatically.
+            Entry may belong to more than one tag, use <a href="http://en.wikipedia.org/wiki/YAML#Lists">YAML List</a>
+            to specify multiple tags.
+        </td>
+        <td>n/a</td>
+    </tr>
+
+    <tr>
+        <td><code>skip</code></td>
+        <td>Whether to skip given entry in site generation. Allows omitting certain entries while still having
+            them in <code>entries</code> folder.</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td><code>permalink</code></td>
+        <td>Allows to set the output path of parsed entry wrt site's main output path. See <a
+                href="/documentation/permalinks/">available permalinks
+                strategies</a></td>
+        <td>n/a</td>
+    </tr>
+</table>
+
+<h2>Custom Variables</h2>
+<p>
+Phrozn allows you to define your own data structures within front matter.
+Once defined they are accessible via <code>this</code> container variable. 
+</p>
+<p>Depending on text processor you rely on, the way you access <code>this</code> may varies. 
+Here is how to do so within entries in Twig format: </p>
+<pre>
+author: Vic Farazdagi
+---
+&lt;p&gt;{{ '{{' }} this.author {{ '}}' }}&lt;/p&gt;
+
+</pre>

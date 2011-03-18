@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+    <head>
+        <title>Phrozn: Static Site Generator</title>
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="/styles/default.css" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link rel="shortcut icon" type="image/x-icon" href="/media/favicon.ico">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script> 
+    </head>
+    <body>
+        <div id="page">
+            <div class="ui-corner-top" id="header">
+                <h1><a href="/">phrozn</a></h1>
+                <h2>Static site generator for PHP</h2>
+                <div id="thingy"></div>
+                <ul id="nav">
+                    <li><a href="/">Summary</a></li>
+                    <li><a href="/installation/">Installation</a></li>
+                    <li><a href="/documentation/">Documentation</a></li>
+                    <li><a href="/community/">Community</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="content">
+{{ content }}
+            <div class="clear vspacer"></div>
+            </div>
+            <div class="ui-corner-bottom" id="footer">
+                <div id="snow-flakes"></div>
+                <div>
+                    Copyright &copy; 2011 Victor Farazdagi
+                </div>
+                <div>
+                    Elephant icon provided by <a href="http://www.visualpharm.com/">VisualPharm</a>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/farazdagi/phrozn"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets0.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_red_aa0000.png&path=" alt="Fork me on GitHub"></a>
+    </body>
+</html> 
