@@ -16,6 +16,7 @@
  * Colors
  */
 @colorBorder: #A4DFEF;
+@colorSectionAnchor: #AFAFAF;
 
 /**
  * Mixin helpers
@@ -160,7 +161,7 @@ p {
             text-decoration: none;
         }
         a.anchor:hover {
-            color: #AFAFAF;
+            color: @colorSectionAncor;
         }
         .vspacer {
             height: 40px;
@@ -242,5 +243,9 @@ p {
         border: 1px solid #DEDEDE;
         font-size: 16px;
         padding: 0 4px;
+    }
+    .note {
+        font-size: @pageFontSize - 5;
+        color: @colorSectionAnchor;
     }
 }
