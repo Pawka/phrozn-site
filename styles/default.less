@@ -177,14 +177,12 @@ p {
     }
     #footer {
         position: relative;
-        height: 150px;
-        border-top: 1px dotted @colorBorder;
+        height: 130px;
         background: url('/media/img/footer.png') repeat scroll 0 0 @pageBgColor;
         color: #FFF;
         font-size: @pageFontSize - 4;
         font-family: "Lucida Grande",Helvetica,Arial,Sans-serif;
-        padding: 15px 15px;
-        text-align: right;
+        padding: 25px;
         a {
             color: #0B7BBF;
             text-decoration: none;
@@ -200,6 +198,28 @@ p {
             height: 123px;
             width: 150px;
             .transparent(0.5);
+        }
+        div#back-to-top {
+            .rounded-corners(3px);
+            text-align: center;
+            font-weight: bold;
+            font-size: @pageFontSize - 3;
+            position: absolute;
+            top: -15px;
+            color: #000;
+            background-color: #8CDBFA;
+            right: 70px;
+            width: 75px;
+            a {
+                color: #000;
+                text-decoration: none;
+                border-bottom: 1px dotted #000;
+            }
+        }
+        div.right {
+            position: absolute;
+            right: 25px;
+            clear: both;
         }
     }
     table {
