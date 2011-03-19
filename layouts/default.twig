@@ -24,8 +24,11 @@
                 <div class="clear"></div>
             </div>
             <div id="content">
-{{ content }}
-            <div class="clear vspacer"></div>
+                {{ content }}
+                <div class="clear vspacer"></div>
+                <div class="note">
+                    Generated on {{ "now"|date("d M, Y") }} at {{ "now"|date("H:i") }} using {{ phr.name }} {{ phr.version }}.
+                </div>
             </div>
             <div class="ui-corner-bottom" id="footer">
                 <div id="snow-flakes"></div>
