@@ -1,0 +1,39 @@
+permalink: /documentation/site-config/
+---
+<h1>Site Configuration</h1>
+<p>You can configure how your particular entries are parsed and compiled into static html pages <br />
+via <a href="/documentation/front-matter/">YAML Front Matter</a>. Additionally, Phrozn allows you to specify global options in
+<code>config.yml</code> configuration file.</p>
+
+<p>Global configuration file <code>config.yml</code> is automatically created on <code>phr init</code>.</p>
+
+<h2 id="variables">Variables</h2>
+
+<table>
+    <tr>
+        <th width="20%">Variable</th>
+        <th>Description</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td><code>entries.layout</code></td>
+        <td>Default layout to use when parsing entries.</td>
+        <td>default.twig</td>
+    </tr>
+    <tr>
+        <td><code>skip</code></td>
+        <td>List of filename patterns to skip. Each item is passed to <a href="http://php.net/preg_match">preg_match</a>, and should be given in PCRE format.</td>
+        <td>n/a</td>
+    </tr>
+</table>
+
+<h2 id="default-config">Default config.yml</h2>
+<p>By defatult, Phrozn generates following configuration file:</p>
+<pre>
+--- # Site configuration
+entries:
+    layout: default.twig
+
+# Files to skip - list of preg expressions is expected
+skip: [/\.swp$/, /\.bak/]
+</pre>

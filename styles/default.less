@@ -134,7 +134,10 @@ p {
         padding: 25px 75px;
         h1, h2, h3 {
             color: #3B8DBF;
-            padding: 20px 0px 20px 0px;
+            padding: 30px 0px 20px 0px;
+        }
+        h3 {
+            padding-top: 10px;
         }
         p {
             font-size: 1em;
@@ -161,20 +164,44 @@ p {
             text-decoration: none;
         }
         a.anchor:hover {
-            color: @colorSectionAncor;
+            color: @colorSectionAnchor;
         }
         .vspacer {
             height: 40px;
         }
-        ul {
+        ol, ul {
             margin-left: 1.5em;
         }
-        li {
+        ul li {
             list-style: square outside none;
             margin-left: 20px;
             padding-bottom: 10px;
         }
-
+        ol li {
+            margin-left: 20px;
+            padding-bottom: 10px;
+            font-weight: bold;
+            span {
+                font-weight: normal;
+            }
+        }
+        p.warning {
+            .rounded-corners (5px);
+            background-color: #F8F8F8;
+            border: 1px solid #FAA98C;
+            font-size: 16px;
+            padding: 20px;
+            margin: 25px auto;
+        }
+        p.note {
+            color: @pageColor;
+            .rounded-corners (5px);
+            background-color: #F8F8F8;
+            border: 1px solid #6BBF7E;
+            font-size: 16px;
+            padding: 20px;
+            margin: 25px auto;
+        }
     }
     #footer {
         position: relative;
@@ -227,6 +254,7 @@ p {
         .rounded-corners(3px);
         border: 1px dotted silver;
         width: 100%;
+        margin: 10px 0px;
         th {
             text-align: left;
             padding: 5px;
@@ -244,8 +272,15 @@ p {
         font-size: 16px;
         padding: 0 4px;
     }
+    pre {
+        margin: 10px 0px;
+    }
     .note {
         font-size: @pageFontSize - 5;
         color: @colorSectionAnchor;
+    }
+    div.hr {
+        margin-top: 25px;
+        border-top: 1px dashed #AFAFAF;
     }
 }
