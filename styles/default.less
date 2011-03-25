@@ -19,6 +19,11 @@
 @colorSectionAnchor: #AFAFAF;
 
 /**
+ * Fonts
+ */
+@monospaceFont: 'Bitstream Vera Sans Mono','Courier', monospace;
+
+/**
  * Mixin helpers
  */
 .rounded-corners (@radius: 5px) {
@@ -282,5 +287,34 @@ p {
     div.hr {
         margin-top: 25px;
         border-top: 1px dashed #AFAFAF;
+    }
+    div#install {
+        position: absolute;
+        top: 350px;
+        right: 85px;
+        a.button {
+            .rounded-corners(6px);
+            -moz-box-shadow: 0 0 2px #000000 inset;
+            background: none repeat scroll 0 0 #EFEFEF;
+            border: 3px solid #DDD;
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666666;
+            color: #0B7BBF;
+            padding: 0px 20px;
+            text-decoration: none;
+            height: 36px;
+            line-height: 36px;
+            opacity: 0.8;
+            text-align: center;
+            text-shadow: 0 1px 1px #FFFFFF;
+        }
+        a {
+            outline: 0 none;
+        }
+        a.button:hover {
+            opacity: 1;
+        }
     }
 }

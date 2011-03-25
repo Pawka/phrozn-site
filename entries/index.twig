@@ -1,6 +1,8 @@
 layout: default.twig
 permalink: /test/
 ---
+<div id="install"><a class="button" href="http://phrozn.info/installation/#pear-channel">INSTALL ({{ phr.version }} {{ phr.stability|upper }})</a></div>
+
 <h1>Welcome!</h1>
 <p>
 Phrozn is static web site generator written in PHP. 
@@ -14,11 +16,13 @@ favorite format - CSS, LESS, HASS), feed all this to Phrozn, and it will compile
 
 <h2 id="features">Features:</h2>
 <ul>
-    <li><b>Extensible:</b> Don't like <a href="/documentation/markup-processors/">supported markup processors</a>? Create
-    your own, it is <a href="/documentation/articles/create-custom-markup-processor/">very easy</a>!
+    <li><b>Extensible:</b> Don't like <a href="/documentation/processors/">supported markup processors</a>? Create
+    your own, it is <a href="/documentation/articles/create-custom-processor/">very easy</a>!
     <li><b>Easy to use:</b> If you are not afraid of command line - you'll be able to use Phrozn effeciently in no time.</li>
     <li><b>Complete:</b> Supports input files in Twig, Textile, Markdown, and LESS format</li>
     <li><b>Modern:</b> No love for pre PHP 5.3 hosts, Phrozn requires PHP 5.3+ and relies on it heavily</li>
+    <li><b>Robust:</b> Phrozn is strictly tested. <a href="http://test.phrozn.info/">Check code coverage</a> and see for yourself!</li>
+    <li><b>Solid Foundation:</b> Phrozn uses code from Zend Framework 2, Symfony 2, Twig, Pirum.</li>
 </ul>
 
 <h2 id="alternatives">Alternatives</h2>
