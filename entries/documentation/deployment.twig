@@ -1,12 +1,31 @@
 permalink: /documentation/deployment/
 ---
 <h1 id="main">Project Deployment</h1>
-<p>Since Phrozn generates simple HTML pages as output, pushing project to your web host is <i>trivial</i>:
+<p>Since Phrozn generates simple HTML pages as output, pushing project to your web host is <i>trivial</i>:<br />
 All you need to do is to copy contents of <code>site</code> folder.</p>
 
 <p>
-There are serveral ways, depending on your needs, to automate the process of deployment.
+There are serveral ways, depending on your needs, to automate such process of deployment.
 </p>
+
+<h2 id="manual">Manual Deployment</h2>
+<p>Supposing that Phrozn directory is controlled by git and you have shell access to production server, most
+straight-forward approach will be:</p>
+<p>
+<ol>
+    <li><span>Compile site with <code>phr up</code>.</span></li>
+    <li><span><code>git-commit</code> and <code>git-push</code> to some central repository (say github).</span></li>
+    <li><span>On production server, <code>git-pull</code> the update from that central repository.</span></li>
+</ol>
+</p>
+<p>
+    Obviously, the same approach can be used with Subversion or any other SCM tool.
+</p>
+
+{#
+<h2 id="phing">Deploy Using Phing</h2>
+<p>You need to add <a href="http://phing.info">Phing</a> phr task</p>
+#}
 
 <h2 id="git-post-update">Git post-update Hook</h2>
 <p>
@@ -15,3 +34,21 @@ You can automate the deployment by relying on git's <a href="http://www.kernel.o
 <p>
 See <a href="/documentation/articles/deploy-using-git-post-update/">detailed walkthrough</a> on how to automate your deployment using post-update hook and GitHub.
 </p>
+
+{#
+<h2 id="git-post-receive">Git post-receive Hook</h2>
+<p>..</p>
+#}
+
+<h2 id="rsync">Synchronize using rsync</h2>
+<p>Again, since phrozn site is just a collection of static pages, you can use <code>rsync</code>. Here is simple shell
+script:</p>
+<pre>
+#!/usr/bin/env bash
+phr up &amp;&amp; rsync -avz --delete site/ my:/path/on/remote/host
+</pre>
+
+{#
+<h2 id="ftp">ftp</h2>
+<p>..</p>
+#}
