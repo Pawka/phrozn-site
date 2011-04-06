@@ -10,4 +10,8 @@ $(document).ready(function () {
             .html("&sect;")
             .appendTo($(el));
     });
+
+    //$("pre").addClass("prettyprint"); // all pre elements are syntax colored
+    //prettyPrint();
+    $("pre").each(function(i, e) {hljs.highlightBlock(e, '    ')});
 });
