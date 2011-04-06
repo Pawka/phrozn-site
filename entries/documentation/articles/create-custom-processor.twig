@@ -17,7 +17,7 @@ permalink: /documentation/articles/create-custom-processor/
     In order for your class to be used as drop-in replacement for some standard
     text processor it MUST implement <code>\Phrozn\Processor</code> interface:
 </p>
-<pre>
+<pre class="php">
 namespace Phrozn;
 interface Processor 
 {
@@ -52,7 +52,7 @@ interface Processor
 Standard location for processor classes is <code>plugins/Processor</code>: 
 </p>
 
-<pre>
+<pre class="php">
 // .phrozn/plugins/Processor/Test.php
 namespace PhroznPlugin\Processor;
 
@@ -101,7 +101,7 @@ So, all *.twig files, for instance, are actually compiled using
 <p>
 View classes MUST implement <code>\Phrozn\Site\View</code> interface:
 </p>
-<pre>
+<pre class="php">
 namespace Phrozn\Site;
 use Phrozn\Has;
 interface View 
@@ -147,7 +147,7 @@ allowing to concentrate only on methods directly related to rendering.
 <p>
     Standard location for your View renderers is <code>plugins/Site/View</code>:
 </p>
-<pre>
+<pre class="php">
 // .phrozn/plugins/Site/View/Test.php
 namespace PhroznPlugin\Site\View;
 use PhroznPlugin\Processor;
@@ -187,8 +187,8 @@ class Test
     our Test view will be used every time entry with ".test" extension is located.
     Time to add one:
 </p>
-<pre>
-// .phrozn/entries/tmp/sample.test
+<pre class="html">
+# .phrozn/entries/tmp/sample.test
 ---
 This entry should be rendered with \PhroznPlugin\Site\View\Test View renderer.
 </pre>
