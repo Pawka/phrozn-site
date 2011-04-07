@@ -9,20 +9,43 @@ Phrozn is static web site generator written in PHP.
 </p>
 <p>The idea is very simple:</p>
 <p>
-You write text files in your favorite format (Textile, Markdown, Twig etc), in your favorite environment (Vim, Vim, Vim
-etc), spice them with styles (again, in your
-favorite format - CSS, LESS, HASS), feed all this to Phrozn, and it will compile files into static HTML site ready to be published.
+You write text files in your favorite format (Textile, Markdown, Twig, Haml etc), in your favorite environment (Vim, Vim, or Vim
+etc), spice them with styles (again, in format of your choice - CSS, LESS, or SASS), feed all this to Phrozn, and it
+will compile input files into static HTML site, ready to be published.
 </p>
 
 <h2 id="features">Features:</h2>
 <ul>
-    <li><b>Extensible:</b> Don't like <a href="/documentation/processors/">supported markup processors</a>? Create
-    your own, it is <a href="/documentation/articles/create-custom-processor/">very easy</a>!
-    <li><b>Easy to use:</b> If you are not afraid of command line - you'll be able to use Phrozn effeciently in no time.</li>
-    <li><b>Complete:</b> Supports input files in Twig, Textile, Markdown, and LESS format</li>
-    <li><b>Modern:</b> No love for pre PHP 5.3 hosts, Phrozn requires PHP 5.3+ and relies on it heavily</li>
+    <li><b>Complete:</b> Supports input files in Twig, Textile, Markdown, and LESS format.</li>
+    <li><b>Extensible:</b> <a href="/documentation/processors/">Supported text processors</a> are not enough for you?  
+        <a href="/documentation/articles/create-custom-processor/">Create your own</a> - it is really simple!</li>
+        <li><b>Easy to use:</b> Only <a href="/documentation/cli-phr/">couple of commands</a> to learn and you'll be able to use Phrozn effeciently in no time.</li>
+    <li><b>Modern:</b> No love for pre PHP 5.3 hosts, Phrozn <b>requires PHP 5.3+</b> and relies on it heavily.</li>
     <li><b>Robust:</b> Phrozn is strictly tested. Check <a href="http://test.phrozn.info/">code coverage</a> and see for yourself!</li>
-    <li><b>Solid Foundation:</b> Phrozn uses code from Zend Framework 2, Symfony 2, Twig, Pirum.</li>
+    <li><b>Solid Foundation:</b> Whenever possible wheel reinvention was avoided. Phrozn uses code from
+    well-written and well known projects including <a href="http://pear.php.net/">PEAR</a>, <a href="http://zendframework.com/">Zend Framework 2</a>, <a
+        href="http://symfony.com/">Symfony 2</a>, <a href="http://www.twig-project.org/">Twig</a>, <a
+        href="http://www.pirum-project.org/">Pirum</a>.</li>
+</ul>
+
+<h2 id="why">Why Phrozn?</h2>
+<p>
+For those who are new to static site generators, here is why you may want to use them:
+</p>
+<ul>
+    <li><b>Fast:</b> Static HTML pages load blazingly fast.</li>
+    <li><b>Safe:</b> Static pages are inherently safe. No code executed server-side.</li>
+    <li><b>Trivial Deployment:</b> No need to worry about server-side configuration - any web-server will do.</li>
+    <li><b>Version Control:</b> Since input pages are simple text files, you can version them, and re-generate whole
+    site from any point in the past.</li>
+    <li><b>Format Agnostic:</b> Enter text in your favorite format, in your favorite text editor.</li>
+</ul>
+<p>Ok, then again <b>why Phrozn</b>?</p>
+<ul>
+    <li>Written in PHP, extensible in PHP.</li>
+    <li>Exemplar of PHP 5.3 code.</li>
+    <li>Designed with extensibility in mind.</li>
+    
 </ul>
 
 <h2 id="alternatives">Alternatives</h2>
@@ -31,7 +54,7 @@ Phrozn is not the only generator in the block, but definitely the best one writt
 </p>
 <p>
 Seriously, Phrozn was created because I couldn't find any decent and well-written static site generator in PHP. There
-are plenty of them written in Python and Ruby, and I definitely reviewed their source code when implementing Phrozn. 
+are plenty of them written in Python and Ruby though, and I reviewed their source code when implementing Phrozn. 
 </p>
 
 <p>So, on the shoulders of giants we stand:</p>
@@ -39,7 +62,7 @@ are plenty of them written in Python and Ruby, and I definitely reviewed their s
     <li class="icon-ruby"><a href="http://jekyllrb.com/">Jekyll</a> - Well known generator used by such services as
     GitHub.</li>
     <li class="icon-python"><a href="http://ringce.com/hyde">Hyde</a> - Python port of Jekyll generator.</li>
-    <li class="icon-ruby"><a href="http://tinytree.info/">Bonsai</a> - Very simplistic but cool little script.</li>
+    <li class="icon-ruby"><a href="http://tinytree.info/">Bonsai</a> - Very simplistic but still extremely useful little script.</li>
     <li class="icon-ruby"><a href="http://webgen.rubyforge.org/">Webgen</a> - Quite sophisticated generator.</li>
     <li class="icon-python"><a href="http://pypi.python.org/pypi/cyrax">Cyrax</a> - Generator based on Jinja2 templates.</li>
 </ul>
