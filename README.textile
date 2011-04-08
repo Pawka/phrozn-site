@@ -1,3 +1,5 @@
 h1. phrozn.info site
 
 Project's own site "phrozn.info":http://www.phrozn.info is generated using "Phrozn":https://github.com/farazdagi/phrozn - static site generator for PHP.
+
+Contents of this repository is complete Phrozn project, generally located in <code>.phrozn</code>
