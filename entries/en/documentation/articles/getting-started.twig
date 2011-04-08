@@ -13,8 +13,107 @@ permalink: /en/documentation/articles/getting-started/
 </p>
 
 <h2 id="create-new-project">Your first Phrozn project</h2>
-<p></p>
-<h2 id="create-project-entries">Create some entries</h2>
+<p>Let's create our first Phrozn project:</p>
+<pre class="no-highlight">
+<span class="variable">$</span> <span class="command">mkdir</span> public_html
+<span class="variable">$</span> <span class="command">cd</span> public_html
+<span class="variable">$</span> <span class="command">phr init</span> 
+</pre>
+<p>Here we create <code>public_html</code> folder and within it initialize our new project. The output will look
+something like this:</p>
+<pre class="no-highlight">
+Initializing new project
+
+  Project path: ./public_html/.phrozn/
+  [<span class="string">ADDED</span>]   config.yml
+  [<span class="string">ADDED</span>]   entries/index.twig
+  [<span class="string">ADDED</span>]   scripts/default.js
+  [<span class="string">ADDED</span>]   media/README
+  [<span class="string">ADDED</span>]   media/img/README
+  [<span class="string">ADDED</span>]   styles/default.less
+  [<span class="string">ADDED</span>]   plugins/README
+  [<span class="string">ADDED</span>]   archive/README
+  [<span class="string">ADDED</span>]   layouts/default.twig
+</pre>
+<p>
+All those files/directories are created within current directory in <code>.phrozn</code> folder.
+</p>
+<table>
+    <tr>
+        <th width="20%">Folder</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>config.yml</code></td>
+        <td>Site wide configuration file. For details see <a href="/en/documentation/site-config/">Site
+                Configuration</a> page.</td>
+    </tr>
+    <tr>
+        <td><code>layouts</code></td>
+        <td>Folder containing site main layouts.</td>
+    </tr>
+    <tr>
+        <td><code>entries</code></td>
+        <td>Folder containing posts/entries of your site. You can create entries in one of <a
+                href="/en/documentation/processors/">supported input formats</a>.
+            Alternatively, you can <a href="/en/documentation/articles/create-custom-processor/">create your own text processor</a>.</td>
+    </tr>
+    <tr>
+        <td><code>scripts</code></td>
+        <td>Folder containing client-side scripts (JavaScript).</td>
+    </tr>
+    <tr>
+        <td><code>styles</code></td>
+        <td>Folder containing stylesheets (CSS, LESS).</td>
+    </tr>
+    <tr>
+        <td><code>media</code></td>
+        <td>Any media in binary format: flash, images, video files. You can create folder hierarchies which will be
+            transfered to compiled site's <code>media</code> folder as is.</td>
+    </tr>
+    <tr>
+        <td><code>plugins</code></td>
+        <td>Folder containing any custom plugin code.</td>
+    </tr>
+</table>
+
+<h2 id="create-project-entries">Create some content</h2>
+<p>
+First of all, let's start with creating our main layout file, <code>.phrozn/layouts/main.twig</code>
+</p>
+<pre class="html">
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Webpage&lt;/title&gt;
+    &lt;link href=&quot;/styles/default.css&quot; 
+          rel=&quot;stylesheet&quot; media=&quot;screen, projection&quot; type=&quot;text/css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My Webpage&lt;/h1&gt;
+    {{ '{{' }}content{{ '}}'}}
+  &lt;/body&gt;
+&lt;/html&gt; 
+</pre>
+<p>
+The only special thing here is <code>{{ '{{' }}content{{ '}}'}}</code> place-holder, which is used to define place where entry content
+is to be injected into layout.
+</p>
+<p>
+Phrozn comes with default layout, called (surprize!!) <code>default.twig</code>, and it is probably more common to
+edit it than to create new layout, but for purposes of demonstration, let's proceed with newly created layout
+<code>main.twig</code>.
+</p>
+
+<p>
+Now, it is time to create our first entry. All entries go to folder <code>.phrozn/entries</code> and you can have multi-level
+directory hierarchies which (depending on your settings) will be transfered to your static site. Source of
+<code>.phrozn/entries/test.twig</code>
+</p>
+<pre>
+</pre>
+<p>Entry above is in Twig format (see "twig" extension") but can be in any of the supported formats.</p>
+
 <h2 id="project-compilation">Compile your project</h2>
 <h2 id="project-update">Keep your project up to date</h2>
 <h2 id="project-removal">Purge project</h2>
