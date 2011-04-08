@@ -63,6 +63,9 @@ pre .template_comment,
 pre .pi,
 pre .doctype{color:#87ceeb}
 
+pre .command 
+{color:#87ceeb}
+
 pre .phpdoc {
 color:#afd9ea;
     font-weight: bold;
