@@ -108,15 +108,107 @@ edit it than to create new layout, but for purposes of demonstration, let's proc
 <p>
 Now, it is time to create our first entry. All entries go to folder <code>.phrozn/entries</code> and you can have multi-level
 directory hierarchies which (depending on your settings) will be transfered to your static site. Source of
-<code>.phrozn/entries/test.twig</code>
+<code>.phrozn/entries/test.twig</code>:
 </p>
 <pre>
+layout: main.twig
+---
+&lt;p&gt;My first entry&lt;/p&gt;
 </pre>
-<p>Entry above is in Twig format (see "twig" extension") but can be in any of the supported formats.</p>
+
+<p>Entry above is in Twig format (see "twig" extension") but can be in Markdown or Textile. All you need to change
+format is to add format extension to entry file (twig, textile, markdown etc). And you can have your own formats as well
+- see documentation on <a href="/en/documentation/articles/create-custom-processor/">creation of custom text processors.</a></p>
+
+<p>
+<code>layout</code> in front-matter is optional, defaulting to <code>default.twig</code>, meaning that
+<code>.phrozn/layouts/default.twig</code> is going to be used.
+</p>
+
+<p>
+In order to have client-side scripts or styles parsed and compiled into <code>scripts</code> and <code>styles</code>
+folders respectively all you need to do is to add them into <code>.phrozn/scripts</code> and
+<code>.phrozn.styles</code>. Right now, all JavaScript code is passed without modification, later on minifying
+processors are planned. when it comes to styles you can add them in CSS or LESS format (use "css" and "less" extensions
+to distinguish between two).
+</p>
 
 <h2 id="project-compilation">Compile your project</h2>
+<p>
+Now, time to phrozn the project up!
+</p>
+<pre class="no-highlight">
+<span class="variable">$</span> <span class="command">cd</span> public_html
+<span class="variable">$</span> <span class="command">phr up</span>
+</pre>
+<p>You should get output similar to following:</p>
+<pre class="no-highlight">
+Starting static site compilation.
+
+  [<span class="string">OK</span>]      Source directory located: /tmp/public_html/.phrozn/
+  [<span class="string">OK</span>]      Destination directory located: /tmp/public_html/
+  [<span class="string">OK</span>]      ./.phrozn/entries/test.twig parsed
+  [<span class="string">OK</span>]      ./test.html written
+  [<span class="string">OK</span>]      ./.phrozn/styles/default.less parsed
+  [<span class="string">OK</span>]      ./styles/default.css written
+  [<span class="string">OK</span>]      ./.phrozn/scripts/default.js parsed
+  [<span class="string">OK</span>]      ./scripts/default.js written
+  [<span class="string">OK</span>]      ./media/README copied
+  [<span class="string">OK</span>]      ./media/img/README copied
+</pre>
+<p>
+If <code>public_html</code> is exposed as some web address, say as <code>http://www.domain.com/</code> then our newly
+create page <code>test.html</code> is available at <code>http://www.domain.com/test.html</code>.
+</p>
+<p>
+Of course, you can have more readable URLs, just update <code>.phrozn/entries/test.twig</code>, to include permalink
+setting:
+</p>
+<pre>
+layout: main.twig
+title: My readable page title
+permalink: /sub/folder/:title/
+---
+&lt;p&gt;My first entry&lt;/p&gt;
+</pre>
+<p>When you re-run <code>phr up</code> the entry will be written into
+<code>./sub/folder/my-readable-page-title/index.html</code> file, and is available as
+<code>http://www.domain.com/sub/folder/my-readable-page-title/</code>. As you see, other front-matter variables are
+available in default permalink strategy (see <a href="/en/documentation/permalinks/">Permalink Strategies</a>), in this case <code>:title</code>
+variable was used as a part of final string (additional filtering applied to make it valid URL).</p>
+<p>There is number of <a href="/en/documentation/front-matter/">other options</a> available in entry's YAML
+Front-Matter.</p>
+
 <h2 id="project-update">Keep your project up to date</h2>
+<p>
+So, in order to update your project, all you need to do is descend to project folder and call <code>phr up</code>
+command. By default, all output files are written into folder containing .phrozn project, in our case to
+<code>public_html</code>:
+</p>
+<pre class="no-highlight">
+<span class="variable">$</span> <span class="command">cd</span> public_html
+<span class="comment"># update or add some entry</span>
+<span class="variable">$</span> <span class="command">phr up</span>
+<span class="comment"># by default all ouput will be written to public_html</span>
+</pre>
 <h2 id="project-removal">Purge project</h2>
+<p>
+Not the most common thing to do, but should you need to purge the project files you can always do so with clobber
+command:
+</p>
+<pre class="no-highlight">
+<span class="variable">$</span> <span class="command">cd</span> public_html
+<span class="variable">$</span> <span class="command">phr clobber</span>
+Purging project data..
+
+Located project folder: /tmp/public_html/.phrozn/
+Project folder is to be removed.
+This operation <span class="variable">CAN NOT</span> be undone.
+
+Type 'yes' to continue:
+</pre>
+
+<p>Make sure you double check the folder to be purged before typing <code>yes</code>!</p>
 <h2 id="summary">Summary</h2>
 <p>Let's summarize what you have learned so far.</p>
 
