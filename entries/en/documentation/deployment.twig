@@ -2,10 +2,10 @@ permalink: /en/documentation/deployment/
 ---
 <h1 id="main">Project Deployment</h1>
 <p>Since Phrozn generates simple HTML pages as output, pushing project to your web host is <i>trivial</i>:<br />
-All you need to do is to copy contents of <code>site</code> folder.</p>
+All you need to do is to copy over generated files.</p>
 
 <p>
-There are several ways, depending on your needs, to automate such process of deployment.
+Depending on your needs, there are several ways to automate this process.
 </p>
 
 <h2 id="manual">Manual Deployment</h2>
@@ -19,7 +19,8 @@ straight-forward approach will be:</p>
 </ol>
 </p>
 <p>
-    Obviously, the same approach can be used with Subversion or any other SCM tool.
+    Obviously, the same approach can be used with Subversion or any other SCM tool. This process can be further
+    automated using some build tool, such as <a href="http://phing.info/">Phing</a>.
 </p>
 
 {#
@@ -27,21 +28,19 @@ straight-forward approach will be:</p>
 <p>You need to add <a href="http://phing.info">Phing</a> phr task</p>
 #}
 
+{#
 <h2 id="git-post-update">Git post-update Hook</h2>
 <p>
-You can automate the deployment by relying on git's <a href="http://www.kernel.org/pub/software/scm/git/docs/githooks.html#post-update">post-update</a> hook.
-</p>
-<p>
-See <a href="/en/documentation/articles/deploy-using-git-post-update/">detailed walk through</a> on how to automate your deployment using post-update hook and GitHub.
+You can automate the deployment by using git's <a href="http://www.kernel.org/pub/software/scm/git/docs/githooks.html#post-update">post-update</a> hook.
+See <a href="/en/documentation/articles/deploy-using-git-post-update/">detailed walkthrough</a> on how to do it. 
 </p>
 
-{#
 <h2 id="git-post-receive">Git post-receive Hook</h2>
 <p>..</p>
 #}
 
 <h2 id="rsync">Synchronize using rsync</h2>
-<p>Again, since phrozn site is just a collection of static pages, you can use <code>rsync</code>. Here is simple shell
+<p>Again, since Phrozn site is just a collection of static pages, you can use <code>rsync</code>. Here is simple shell
 script:</p>
 <pre>
 #!/usr/bin/env bash

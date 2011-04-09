@@ -11,15 +11,15 @@ which is executed on our remote production host everytime we push branches in ou
 
 <p>The algorithm is simple:</p>
 <ol>
-    <li><span>Create a git repository of your phrozn project</span></li>
-    <li><span>Clone that repository on production host</span></li>
-    <li><span>Add <code>post-update</code> hook on production host, it will be responsible for pulling/updating the
-        cloned version everytime something is pushed to project repository</span></li>
+    <li><span>Create a git repository of your Phrozn project.</span></li>
+    <li><span>Clone that repository on production host.</span></li>
+    <li><span>Activate <code>post-update</code> hook on production host, it will be responsible for pulling/updating the
+        site everytime something is pushed to project repository.</span></li>
     <li><span>Clone repository you created at <code>step 1</code> into your dev box, where you can update site as you
-        see suitable</span></li>
+        see suitable.</span></li>
 </ol>
 <p>
-Now when you update the code on your dev box, and <code>git-commit</code> and <code>git-push</code> it to production
+Now when you update the code on your dev box, then <code>git-commit</code> and <code>git-push</code> it to production
 host, once push is done <code>post-update</code> hook is invoked, which basically contains instructions to syncronize
 by pulling changes.
 </p>
