@@ -2,7 +2,7 @@ permalink: /en/documentation/front-matter/
 ---
 <h1 id="front-matter">YAML Front Matter</h1>
 <p>Each entry file may contain front matter in YAML format.</p>
-<p>Front matter is used to set predefined parameters with which entry will be parsed, or to set your own custom variables.</p>
+<p>Front matter is used for either setting predefined parameters with which entry will be parsed, or setting your own custom variables.</p>
 
 <p>When present, front matter must be the first thing in file and delimited from the file's content with three
 consecutive dashes (on their own line):</p>
@@ -38,7 +38,7 @@ permalink: /sub/section/
 
     <tr>
         <td><code>skip</code></td>
-        <td>Whether to skip given entry in site generation. Allows omitting certain entries while still having
+        <td>Whether to skip given entry from site generation. Allows omitting certain entries while still having
             them in <code>entries</code> folder.</td>
         <td>false</td>
     </tr>
@@ -56,7 +56,7 @@ permalink: /sub/section/
 Phrozn allows you to define your own data structures within front matter.
 Once defined they are accessible via <code>this</code> container variable. 
 </p>
-<p>Depending on text processor you rely on, the way you access <code>this</code> may varies. 
+<p>Depending on text processor you rely on, the way you access <code>this</code> varies. 
 Here is how to do so within entries in Twig format: </p>
 <pre>
 author: Vic Farazdagi
