@@ -19,7 +19,7 @@ permalink: /en/documentation/articles/getting-started/
 <span class="variable">$</span> <span class="command">cd</span> public_html
 <span class="variable">$</span> <span class="command">phr init</span> 
 </pre>
-<p>Here we create <code>public_html</code> folder and within it initialize our new project. The output will look
+<p>Here we create <code>public_html</code> folder and within it initialize our new Phrozn project. The output will look
 something like this:</p>
 <pre class="no-highlight">
 Initializing new project
@@ -36,7 +36,7 @@ Initializing new project
   [<span class="string">ADDED</span>]   layouts/default.twig
 </pre>
 <p>
-All those files/directories are created within current directory in <code>.phrozn</code> folder.
+All those files/directories are created in <code>public_html/.phrozn</code> folder.
 </p>
 <table>
     <tr>
@@ -45,18 +45,18 @@ All those files/directories are created within current directory in <code>.phroz
     </tr>
     <tr>
         <td><code>config.yml</code></td>
-        <td>Site wide configuration file. For details see <a href="/en/documentation/site-config/">Site
-                Configuration</a> page.</td>
+        <td>Site wide configuration file. For details see 
+        <a href="/en/documentation/site-config/">Site Configuration</a> page.</td>
     </tr>
     <tr>
         <td><code>layouts</code></td>
-        <td>Folder containing site main layouts.</td>
+        <td>Folder containing site's layouts.</td>
     </tr>
     <tr>
         <td><code>entries</code></td>
-        <td>Folder containing posts/entries of your site. You can create entries in one of <a
+        <td>Folder containing posts/entries of your site. You can create entries in one of the <a
                 href="/en/documentation/processors/">supported input formats</a>.
-            Alternatively, you can <a href="/en/documentation/articles/create-custom-processor/">create your own text processor</a>.</td>
+            Alternatively, you can <a href="/en/documentation/articles/create-custom-processor/">define your own</a>.</td>
     </tr>
     <tr>
         <td><code>scripts</code></td>
@@ -73,7 +73,7 @@ All those files/directories are created within current directory in <code>.phroz
     </tr>
     <tr>
         <td><code>plugins</code></td>
-        <td>Folder containing any custom plugin code.</td>
+        <td>Folder containing plugins.</td>
     </tr>
 </table>
 
@@ -96,8 +96,8 @@ First of all, let's start with creating our main layout file, <code>.phrozn/layo
 &lt;/html&gt; 
 </pre>
 <p>
-The only special thing here is <code>{{ '{{' }}content{{ '}}'}}</code> place-holder, which is used to define place where entry content
-is to be injected into layout.
+The only special thing here is <code>{{ '{{' }}content{{ '}}'}}</code> place-holder, which defines the place 
+where entry's content is to be injected into layout.
 </p>
 <p>
 Phrozn comes with default layout, called (surprize!!) <code>default.twig</code>, and it is probably more common to
@@ -106,8 +106,16 @@ edit it than to create new layout, but for purposes of demonstration, let's proc
 </p>
 
 <p>
+In order to have client-side scripts or styles parsed and compiled into <code>scripts</code> and <code>styles</code>
+folders respectively all you need to do is to add them into <code>.phrozn/scripts</code> and
+<code>.phrozn/styles</code>. Right now, all JavaScript code is passed without modification, minifying
+processors already planned. When it comes to styles you can add them in CSS or LESS format (use "css" and "less" extensions
+to distinguish between two).
+</p>
+
+<p>
 Now, it is time to create our first entry. All entries go to folder <code>.phrozn/entries</code> and you can have multi-level
-directory hierarchies which (depending on your settings) will be transfered to your static site. Source of
+directory hierarchies which (depending on your settings) can be preserved in your static site. Source of
 <code>.phrozn/entries/test.twig</code>:
 </p>
 <pre>
@@ -116,26 +124,22 @@ layout: main.twig
 &lt;p&gt;My first entry&lt;/p&gt;
 </pre>
 
-<p>Entry above is in Twig format (see "twig" extension") but can be in Markdown or Textile. All you need to change
-format is to add format extension to entry file (twig, textile, markdown etc). And you can have your own formats as well
-- see documentation on <a href="/en/documentation/articles/create-custom-processor/">creation of custom text processors.</a></p>
-
+<p>Entry above is in Twig format (see "twig" extension") but can be in Markdown or Textile. Just change the extension
+of entry file (twig, textile, markdown etc), and Phrozn will apply respective processor. 
+As mentioned before, you can have your own formats as well
+- see documentation on <a href="/en/documentation/articles/create-custom-processor/">creation of custom text processors.</a>
+</p>
 <p>
-<code>layout</code> in front-matter is optional, defaulting to <code>default.twig</code>, meaning that
-<code>.phrozn/layouts/default.twig</code> is going to be used.
+Now let's review front matter. 
+<code>layout</code> setting is completely optional, it defaults to <code>default.twig</code>, which means 
+<code>.phrozn/layouts/default.twig</code> is to be used as layout file. Since we created our custom layout file, we set 
+this option to <code>main.twig</code>.
 </p>
 
-<p>
-In order to have client-side scripts or styles parsed and compiled into <code>scripts</code> and <code>styles</code>
-folders respectively all you need to do is to add them into <code>.phrozn/scripts</code> and
-<code>.phrozn.styles</code>. Right now, all JavaScript code is passed without modification, later on minifying
-processors are planned. when it comes to styles you can add them in CSS or LESS format (use "css" and "less" extensions
-to distinguish between two).
-</p>
 
 <h2 id="project-compilation">Compile your project</h2>
 <p>
-Now, time to phrozn the project up!
+Now, time to have phrozn version of our project!
 </p>
 <pre class="no-highlight">
 <span class="variable">$</span> <span class="command">cd</span> public_html
@@ -158,10 +162,10 @@ Starting static site compilation.
 </pre>
 <p>
 If <code>public_html</code> is exposed as some web address, say as <code>http://www.domain.com/</code> then our newly
-create page <code>test.html</code> is available at <code>http://www.domain.com/test.html</code>.
+created page <code>test.html</code> is available at <code>http://www.domain.com/test.html</code>.
 </p>
 <p>
-Of course, you can have more readable URLs, just update <code>.phrozn/entries/test.twig</code>, to include permalink
+If you want to have more readable URLs, just update <code>.phrozn/entries/test.twig</code>, to include permalink
 setting:
 </p>
 <pre>
@@ -171,25 +175,29 @@ permalink: /sub/folder/:title/
 ---
 &lt;p&gt;My first entry&lt;/p&gt;
 </pre>
-<p>When you re-run <code>phr up</code> the entry will be written into
-<code>./sub/folder/my-readable-page-title/index.html</code> file, and is available as
-<code>http://www.domain.com/sub/folder/my-readable-page-title/</code>. As you see, other front-matter variables are
-available in default permalink strategy (see <a href="/en/documentation/permalinks/">Permalink Strategies</a>), in this case <code>:title</code>
-variable was used as a part of final string (additional filtering applied to make it valid URL).</p>
-<p>There is number of <a href="/en/documentation/front-matter/">other options</a> available in entry's YAML
-Front-Matter.</p>
+<p>When you re-run <code>phr up</code> the entry will be written into<br />
+<code>public_html/sub/folder/my-readable-page-title/index.html</code><br /> file, and is available as
+<br /><code>http://www.domain.com/sub/folder/my-readable-page-title/</code>.
+</p>
+<p>
+As you see, other front matter variables are
+available in default permalink strategy (see <a href="/en/documentation/permalinks/">Permalink Strategies</a>). 
+In this case <code>:title</code> variable was used as a part of final string (additional filtering applied to make it valid URL).</p>
+<p>
+There are number of <a href="/en/documentation/front-matter/">other options</a> available in entry's front matter.
+</p>
 
 <h2 id="project-update">Keep your project up to date</h2>
 <p>
-So, in order to update your project, all you need to do is descend to project folder and call <code>phr up</code>
-command. By default, all output files are written into folder containing .phrozn project, in our case to
+In order to update your project, all you need to do is call <code>phr up</code>
+command. By default, all output files are written into directory containing <code>.phrozn</code> folder, in our case to
 <code>public_html</code>:
 </p>
 <pre class="no-highlight">
 <span class="variable">$</span> <span class="command">cd</span> public_html
-<span class="comment"># update or add some entry</span>
+<span class="comment"># update or add some content</span>
 <span class="variable">$</span> <span class="command">phr up</span>
-<span class="comment"># by default all ouput will be written to public_html</span>
+<span class="comment"># by default all ouput will be written to current folder</span>
 </pre>
 <h2 id="project-removal">Purge project</h2>
 <p>
@@ -209,6 +217,7 @@ Type 'yes' to continue:
 </pre>
 
 <p>Make sure you double check the folder to be purged before typing <code>yes</code>!</p>
+<p>Only project folder <code>.phrozn</code> will be removed, your generated content will stay intact.</p>
 <h2 id="summary">Summary</h2>
 <p>Let's summarize what you have learned so far.</p>
 

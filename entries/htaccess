@@ -1,5 +1,5 @@
 permalink: .htaccess
-skip: true
+skip: false
 ---
 RewriteEngine on
 RewriteCond %{HTTP_HOST} ^phrozn\.info$

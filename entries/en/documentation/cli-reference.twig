@@ -15,15 +15,15 @@ permalink: /en/documentation/cli-phr/
 <p class="note">You can use <code>phr</code> and <code>phrozn</code> executables interchangeably. Personally, I prefer much shorter <code>phr</code> alternative.</p>
 
 <h2 id="help">phr help</h2>
-<p>To get help reference on particular command use <code>phr help &lt;command&gt;</code> or <code>phr ? &lt;command&gt;</code></p>
+<p>To get help on particular command use <code>phr help &lt;command&gt;</code> or <code>phr ? &lt;command&gt;</code>.</p>
 
-<p>So to get help on using <code>help</code> command:</p>
+<p>So, to get help on using <code>help</code> command:</p>
 <pre class="bash">
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">help</span>
 </pre>
 
 <h2 id="phr-init">phr init</h2>
-<p>This command is used to initialize your Phrozn project. It creates all necessary folder structure and config files:</p>
+<p>This command is used to initialize Phrozn project. It creates necessary folder structure and config files:</p>
 <pre class="no-highlight">
     <span class="variable">$</span> <span class="command">mkdir</span> my-phrozn-project
     <span class="variable">$</span> <span class="command">cd</span> my-phrozn-project
@@ -37,15 +37,14 @@ permalink: /en/documentation/cli-phr/
 
 <p>As you see, if project directory not specified current one is assumed.</p>
 
-<p>For further info use:</p>
+<p>For further info:</p>
 <pre class="no-highlight">
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">init</span>
 </pre>
 
 <h2 id="phr-up">phr update</h2>
 <p>
-Phrozn update command is used to create/update static site representation of your project. By far, this command is
-the one you will invoke most often.
+Update command is used to create/update static site representation of your project. By far, this is a command you will invoke most often.
 </p>
 <p><code>phr up</code> accepts two arguments: the first one is input directory containing Phrozn project, and the second one
 is output directory. However, since both arguments default to current working directory, you generally omit them
@@ -55,7 +54,7 @@ altogether:</p>
     <span class="variable">$</span> <span class="command">phr up</span>
 </pre>
 
-<p>For further info use:</p>
+<p>For further info:</p>
 <pre class="no-highlight">
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">up</span>
 </pre>
@@ -70,11 +69,11 @@ This command locates and removes Phrozn project directory, effectively deleting 
 </pre>
 
 <p>
-You can manually simulate the clobber command by removing project directory <code>.phrozn</code>
+You can manually simulate the clobber command by removing project directory <code>.phrozn</code> manually.
 </p>
 <p class="warning">USE WITH CAUTION!! Once you purge the project, all changes are lost (albeit they are preserved in
 repo).</p>
-<p>For further info use</p> 
+<p>For further info:</p> 
 <pre>
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">clobber</span>
 </pre>
