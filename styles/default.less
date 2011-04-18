@@ -226,22 +226,31 @@ p {
         font-size: @pageFontSize - 4;
         font-family: "Lucida Grande",Helvetica,Arial,Sans-serif;
         padding: 25px;
-        a {
-            color: #126C96;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #0A5A7F;
-            border-bottom: 1px dotted #0A5A7F;
+        #farazdagi {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            height: 38px;
+            width: 273px;
+            a {
+                background: url('/media/img/farazdagi.png') no-repeat scroll 0 0 transparent;
+                .transparent(0.6);
+                display: block;
+                line-height: 45px;
+                color: #80D3F6;
+            }
+            a:hover {
+                opacity: 1;
+            }
         }
         #snow-flakes {
             position: absolute;
             right: 0px;
             bottom: 0px;
             background: url('/media/img/snow-flakes.png') no-repeat scroll 0 0 transparent;
-            height: 123px;
+            height: 115px;
             width: 150px;
-            .transparent(0.5);
+            .transparent(0.3);
         }
         div#validators {
             position: absolute;
@@ -268,8 +277,18 @@ p {
         }
         div.right {
             position: absolute;
-            right: 25px;
+            top: 65px;
+            right: 35px;
             clear: both;
+            color: #337296;
+            a {
+                color: #337296;
+                text-decoration: none;
+                border-bottom: 1px dotted @colorHeader;
+            }
+            a:hover {
+                border-bottom: 1px dotted #0A5A7F;
+            }
         }
     }
     table {
