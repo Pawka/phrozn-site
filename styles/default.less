@@ -73,17 +73,22 @@ p {
         color: @color;
         background: url('/media/img/background.png') repeat scroll 0 0 @pageBgColor;
         border-bottom: 2px dotted @colorBorder;
+        a {
+            outline: 0 none;
+        }
         h1 {
-            float: left;
-            width: 280px;
-            height: 112px;
-            overflow: hidden;
-            background: url("/media/img/logo.png") no-repeat scroll 0 0 transparent;
-            text-indent: -9999px;
-            z-index: 2;
-            position: absolute;
-            top: 25px;
-            left: 70px;
+            a {
+                display: block;
+                width: 280px;
+                height: 112px;
+                overflow: hidden;
+                background: url("/media/img/logo.png") no-repeat scroll 0 0 transparent;
+                text-indent: -9999px;
+                z-index: 2;
+                position: absolute;
+                top: 25px;
+                left: 70px;
+            }
         }
         h2 {
             float: right;
@@ -237,7 +242,8 @@ p {
                 .transparent(0.6);
                 display: block;
                 line-height: 45px;
-                color: #80D3F6;
+                text-indent: -9999px;
+                outline: 0 none;
             }
             a:hover {
                 opacity: 1;
