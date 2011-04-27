@@ -22,6 +22,14 @@ permalink: /en/documentation/cli-phr/
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">help</span>
 </pre>
 
+<p>Help on specific commands also contains verbose mode, which produce more elaborated version of docs:</p>
+<pre class="bash">
+    <span class="variable">$</span> <span class="command">phr</span> ? -v <span class="command">help</span>
+    <span class="variable">$</span> <span class="command">phr</span> help -v <span class="command">help</span>
+    <span class="variable">$</span> <span class="command">phr</span> help -v <span class="command">init</span>
+    <span class="variable">$</span> <span class="command">phr</span> help -v <span class="command">up</span>
+</pre>
+
 <h2 id="phr-init">phr init</h2>
 <p>This command is used to initialize Phrozn project. It creates necessary folder structure and config files:</p>
 <pre class="no-highlight">
