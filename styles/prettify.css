@@ -70,3 +70,7 @@ pre .phpdoc {
 color:#afd9ea;
     font-weight: bold;
 }
+
+pre .cli-comment {
+    color: #E8DBB4;
+}
