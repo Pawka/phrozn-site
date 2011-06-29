@@ -5,8 +5,8 @@ permalink: /en/documentation/providers/
 
 <h2 id="core" class="in-toc">Introduction</h2>
 <p>
-Sometimes you need to use some external data within your Phrozn pages. 
-For the most obvious example, consider you have an RSS feed, and want to display it's contents
+Sometimes you need to use external data within your Phrozn pages. 
+For the most obvious example, let's assume you have an RSS feed and want to display it's contents
 on some Phrozn page. Content providers are exactly for this kind of tasks.
 </p>
 <p class="note">
@@ -15,8 +15,9 @@ Layer between your entity templates and whatever data you need to feature on tho
 </p>
 
 <p>
-Content providers may be as simple as some array of elements you want to traverse within your templates. They can also
-be quite complex, involving fetching data from some external servers, process it and then inject into templates.
+Content providers may be as simple as some array of elements you want to traverse within your templates. 
+They can be more quite complex as well, involving fetching data from some external service, process it and 
+then inject into templates.
 </p>
 
 
@@ -43,22 +44,22 @@ interface Provider
     public function get();
 }
 </pre>
-<p>As you see, interface is pretty simple with only one relevant method <code>get</code> (other methods are
-inherited from <code>Has\Config</code> and <code>Has\ProjectPath</code> interfaces and are used to inject extra
-configuration and project path respectively).</p>
+<p>As you see, interface is pretty simple with only one relevant method - that's <code>get()</code> method.
+Other methods are inherited from <code>Has\Config</code> and <code>Has\ProjectPath</code> interfaces and are 
+used to inject extra configuration and project path respectively.</p>
 <p>
-In order to simplify the creation of new content providers, Phrozn comes with base class that implements auxiliary
-functionality, so the only method you generally need to implement is <code>\Phrozn\Provider::get()</code>.
+In order to simplify the creation of new content providers, Phrozn comes with base class that implements 
+all this auxiliary functionality, and the only method you generally need to implement is <code>\Phrozn\Provider::get()</code>.
 </p>
 <p>
-Any data returned from <code>get()</code> method can be injected into templates. Although you can return scalars, 
-it is more common to return array, and if you need scalar to inject it directly into 
-<a href="/en/documentation/front-matter/#custom-variables">Front Matter custom variables</a>.
+Any data returned from <code>get()</code> method can be injected into templates. While you can return scalars, 
+it is more common to return arrays, and if you need scalar it is more convinient to expose it via 
+Front Matter's <a href="/en/documentation/front-matter/#custom-variables">custom variables</a>.
 </p>
 
 <h2 id="inject-provider-content" class="in-toc">Injecting Content Into Entries</h2>
 <p>
-Content Providers are exposed inside <a href="/en/documentation/front-matter/#custom-variables">Front Matter</a>
+To use inside entries Content Providers must be included into <a href="/en/documentation/front-matter/#custom-variables">Front Matter</a>
 using special variable <code>providers</code>:
 </p>
 <pre>
@@ -81,8 +82,8 @@ providers:
     <tr>
         <td><code>provider</code></td>
         <td>
-        Class name of the Content Provider class. As mentioned above this class must implement
-        <code>\Phrozn\Provider</code> interface.
+        Class name of the Content Provider class. 
+        <br />This class must implement <code>\Phrozn\Provider</code> interface.
         </td>
     </tr>
     <tr>
@@ -96,15 +97,15 @@ providers:
 </table>
 
 <p>
-As you can see, <code>providers</code> is a list, implying that within single entry you may have several 
-different providers, or you can expose the very same provider under different keys (and using different parameters).
-See example below, which does exactly that.
+As you can see, <code>providers</code> variable is a list, implying that you may have several 
+different providers within the single entry. You can even expose the very same provider under 
+different keys (and using different parameters). See example below, which does exactly that.
 </p>
 
 
 <h2 id="primarchs-list-example" class="in-toc">Simple Example (List of Primarchs)</h2>
 <p>
-Let's start simple and create very basic Content Provider, one that will only inject bunch of strings into 
+Let's start simple and create very basic Content Provider, the one that will only inject bunch of strings into 
 our template.
 </p>
 
@@ -189,37 +190,42 @@ providers:
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;loyal-primarchs&quot;&gt;Loyal Primarchs:&lt;/h1&gt;
-&lt;ul&gt;
-{% raw %}{% for primarch in this.providers.traitor_primarchs %}
+&lt;ol&gt;
+{% raw %}{% for primarch in this.providers.loyal_primarchs %}
     &lt;li&gt;&lt;b&gt;{{ primarch.name }}&lt;/b&gt; of {{ primarch.legion }} ({{ primarch.allegiance}})&lt;/li&gt;
 {% endfor %}{% endraw %}
-&lt;/ul&gt;
+&lt;/ol&gt;
 
 &lt;h1 id=&quot;traitor-primarchs&quot;&gt;Traitor Primarchs:&lt;/h1&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 {% raw %}{% for primarch in this.providers.traitor_primarchs %}
     &lt;li&gt;&lt;b&gt;{{ primarch.name }}&lt;/b&gt; of {{ primarch.legion }} ({{ primarch.allegiance}})&lt;/li&gt;
 {% endfor %}{% endraw %}
-&lt;/ul&gt;
+&lt;/ol&gt;
 </pre>
 <p>
-As you see I exposed the same provider class <code>Primarchs</code> under different keys.
-The only difference is parameter passed.
+As you see I exposed the same provider class <code>Primarchs</code> under different keys/names.
+The only difference is parameter (or its absence) passed.
 </p>
 <p>
-Now, it is a good time to scroll up and review the code in provider's <code>get()</code> method.
+Now, it is a good time to scroll up and review the implemetation of <code>Primarchs::get()</code> method.
 Pretty simple stuff, right?
-</p>
-
-<p>
-By the way, did you know that number of loyal Primarchs is equal to that of traitors? Check the 
-<a href="/en/samples/provider.primarchs.html">result page</a> and see for yourself :)
+<a href="/en/samples/provider.primarchs.html">Check the result page</a> and see for yourself :)
 </p>
 
 <h2 id="conclusion" class="in-toc">Conclusion</h2>
 <p>
-As you see, Phrozn has quite a good support for dynamic content (if your dynamically 
-genereated data is ok with being put into static form). 
-Whenever you need to get access to some data within your entries, the answer is almost always will be
+As you see, Phrozn has quite a good support for dynamic content (if you are ok with putting
+that data into static form).
+</p>
+<p>
+So, whenever you need to get access to some external data within your entries, the answer is almost always will be
 Content Providers.
 </p>
+<p>
+Finally, you can check the code in context on GitHub:
+</p>
+<ul>
+    <li><a href="https://github.com/farazdagi/phrozn-site/blob/master/plugins/Provider/Primarchs.php">plugins/Provider/Primarchs.php</a></li>
+    <li><a href="https://github.com/farazdagi/phrozn-site/blob/master/entries/en/samples/provider.primarchs.twig">entries/en/samples/provider.primarchs.twig</a></li>
+</ul>
