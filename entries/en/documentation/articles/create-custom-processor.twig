@@ -1,18 +1,19 @@
 permalink: /en/documentation/articles/create-custom-processor/
 ---
 <h1 id="main">Create custom markup processor</h1>
+<div class="toc-box">&nbsp;</div>
 
 <p>
     Phrozn was created with plugin architecture in mind, so extending it should be
     relatively simple process.
 </p>
-
+<div class="clear"></div>
 <p class="warning">
     All extension classes MUST reside in <code>.phrozn/plugins</code> folder.<br />
     Base namespace used for plugin code is <code>PhroznPlugin</code>.
 </p>
 
-<h2 id="create-processor">1. Create Processor Class</h2>
+<h2 id="create-processor" class="in-toc">1. Create Processor Class</h2>
 <p>
     In order for your class to be used as drop-in replacement for some standard
     text processor it MUST implement <code>\Phrozn\Processor</code> interface:
@@ -81,7 +82,7 @@ Thus, if you rely on <code>\Phrozn\Processor\Base</code>, the only method you ne
 So far we have Test processor which simply wraps incoming template into &lt;b&gt; tags.
 </p>
 
-<h2 id="create-view">2. Create View</h2>
+<h2 id="create-view" class="in-toc">2. Create View</h2>
 <p>
 For rendering given entry into static HTML page, you need to create content rendering View class.
 Basically, whenever Phrozn encounters file with extension that matches name of some 
@@ -181,7 +182,7 @@ class Test
 </p>
 <p>Now, let's actually test the whole thing.</p>
 
-<h2 id="register-view">3. Register View Renderer</h2>
+<h2 id="register-view" class="in-toc">3. Register View Renderer</h2>
 <p>
     As mentioned before, Phrozn matches extensions of entries to view names, so
     our Test view will be used every time entry with ".test" extension is located.
