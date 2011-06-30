@@ -1,7 +1,7 @@
 layout: default.twig
 permalink: /en/
 ---
-<div id="install"><a class="button" href="/en/installation/#pear-channel">INSTALL ({{ phr.version }} {{ phr.stability|upper }})</a></div>
+<div id="install"><a class="button" href="{{this.basepath}}en/installation/#pear-channel">INSTALL ({{ phr.version }} {{ phr.stability|upper }})</a></div>
 
 <h1>Welcome!</h1>
 <p>
@@ -14,14 +14,14 @@ etc), spice them with styles (again, in format of your choice - CSS, LESS, or SA
 will create static HTML site ready to be published.
 </p>
 
-<p>To get you up to speed <a href="/en/documentation/articles/getting-started/">Getting Started</a> guide has been written.</p>
+<p>To get you up to speed <a href="{{this.basepath}}en/documentation/articles/getting-started/">Getting Started</a> guide has been written.</p>
 
 <h2 id="features">Features:</h2>
 <ul>
     <li><b>Complete:</b> Supports input files in Twig, Textile, Markdown, and LESS format.</li>
-    <li><b>Extensible:</b> <a href="/en/documentation/processors/">Supported text processors</a> are not enough for you?  
-        <a href="/en/documentation/articles/create-custom-processor/">Create your own</a> - it is really simple!</li>
-        <li><b>Easy to use:</b> Only <a href="/en/documentation/cli-phr/">couple of commands</a> to learn and you'll be able to use Phrozn efficiently in no time.</li>
+    <li><b>Extensible:</b> <a href="{{this.basepath}}en/documentation/processors/">Supported text processors</a> are not enough for you?  
+        <a href="{{this.basepath}}en/documentation/articles/create-custom-processor/">Create your own</a> - it is really simple!</li>
+        <li><b>Easy to use:</b> Only <a href="{{this.basepath}}en/documentation/cli-phr/">couple of commands</a> to learn and you'll be able to use Phrozn efficiently in no time.</li>
     <li><b>Modern:</b> No love for pre PHP 5.3 hosts, Phrozn <b>requires PHP 5.3+</b> and relies on it heavily.</li>
     <li><b>Robust:</b> Phrozn is strictly tested. Check <a href="http://test.phrozn.info/">code coverage</a> and see for yourself!</li>
     <li><b>Solid Foundation:</b> Whenever possible wheel reinvention was avoided. Phrozn uses code from

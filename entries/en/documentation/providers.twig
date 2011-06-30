@@ -54,12 +54,12 @@ all this auxiliary functionality, and the only method you generally need to impl
 <p>
 Any data returned from <code>get()</code> method can be injected into templates. While you can return scalars, 
 it is more common to return arrays, and if you need scalar it is more convinient to expose it via 
-Front Matter's <a href="/en/documentation/front-matter/#custom-variables">custom variables</a>.
+Front Matter's <a href="{{this.basepath}}en/documentation/front-matter/#custom-variables">custom variables</a>.
 </p>
 
 <h2 id="inject-provider-content" class="in-toc">Injecting Content Into Entries</h2>
 <p>
-To use inside entries Content Providers must be included into <a href="/en/documentation/front-matter/#custom-variables">Front Matter</a>
+To use inside entries Content Providers must be included into <a href="{{this.basepath}}en/documentation/front-matter/#custom-variables">Front Matter</a>
 using special variable <code>providers</code>:
 </p>
 <pre>
@@ -210,7 +210,7 @@ The only difference is parameter (or its absence) passed.
 <p>
 Now, it is a good time to scroll up and review the implemetation of <code>Primarchs::get()</code> method.
 Pretty simple stuff, right?
-<a href="/en/samples/provider.primarchs.html">Check the result page</a> and see for yourself :)
+<a href="{{this.basepath}}en/samples/provider.primarchs.html">Check the result page</a> and see for yourself :)
 </p>
 
 <h2 id="conclusion" class="in-toc">Conclusion</h2>

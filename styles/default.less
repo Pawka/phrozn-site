@@ -1,3 +1,5 @@
+@pathmedia: '../media';
+
 @color: #ccc;
 
 @bodyBgColor: #FFF;
@@ -22,7 +24,6 @@
  * Fonts
  */
 @monospaceFont: 'Bitstream Vera Sans Mono','Courier', monospace;
-
 /**
  * Mixin helpers
  */
@@ -74,7 +75,7 @@ img {
     #header {
         height: 220px;
         color: @color;
-        background: url('/media/img/background.png') repeat scroll 0 0 @pageBgColor;
+        background: url("{@pathmedia}/img/background.png") repeat scroll 0 0 @pageBgColor;
         border-bottom: 2px dotted @colorBorder;
         a {
             outline: 0 none;
@@ -85,7 +86,7 @@ img {
                 width: 280px;
                 height: 112px;
                 overflow: hidden;
-                background: url("/media/img/logo.png") no-repeat scroll 0 0 transparent;
+                background: url('{@pathmedia}/img/logo.png') no-repeat scroll 0 0 transparent;
                 text-indent: -9999px;
                 z-index: 2;
                 position: absolute;
@@ -104,7 +105,7 @@ img {
             line-height: 1.2em;
         }
         #thingy {
-            background: url("/media/img/elephant.png") no-repeat scroll 0 0 transparent;
+            background: url('{@pathmedia}/img/elephant.png') no-repeat scroll 0 0 transparent;
             position: absolute;
             width: 256px;
             height: 256px;
@@ -220,12 +221,12 @@ img {
         }
         li.icon-ruby {
             list-style: none;
-            background: url('/media/img/icons/ruby.png') no-repeat 0 5px;
+            background: url('{@pathmedia}/img/icons/ruby.png') no-repeat 0 5px;
             padding-left: 25px;
         }
         li.icon-python {
             list-style: none;
-            background: url('/media/img/icons/python.png') no-repeat 0 5px;
+            background: url('{@pathmedia}/img/icons/python.png') no-repeat 0 5px;
             padding-left: 25px;
         }
         p.warning {
@@ -253,7 +254,7 @@ img {
     #footer {
         position: relative;
         height: 130px;
-        background: url('/media/img/footer.png') repeat scroll 0 0 @pageBgColor;
+        background: url('{@pathmedia}/img/footer.png') repeat scroll 0 0 @pageBgColor;
         color: #FFF;
         font-size: @pageFontSize - 4;
         font-family: "Lucida Grande",Helvetica,Arial,Sans-serif;
@@ -265,7 +266,7 @@ img {
             height: 38px;
             width: 273px;
             a {
-                background: url('/media/img/farazdagi.png') no-repeat scroll 0 0 transparent;
+                background: url('{@pathmedia}/img/farazdagi.png') no-repeat scroll 0 0 transparent;
                 .transparent(0.6);
                 display: block;
                 line-height: 45px;
@@ -280,7 +281,7 @@ img {
             position: absolute;
             right: 0px;
             bottom: 0px;
-            background: url('/media/img/snow-flakes.png') no-repeat scroll 0 0 transparent;
+            background: url('{@pathmedia}/img/snow-flakes.png') no-repeat scroll 0 0 transparent;
             height: 115px;
             width: 150px;
             .transparent(0.3);

@@ -10,7 +10,7 @@ permalink: /en/documentation/articles/getting-started/
 <h2 id="install" class="in-toc">Installation</h2>
 <p>
     Before you will be able to proceed, you need to install Phrozn. Please, make sure that you meet system requirements
-    outlined on <a href="/en/installation/">Installation</a> page.
+    outlined on <a href="{{this.basepath}}en/installation/">Installation</a> page.
 </p>
 
 <h2 id="create-new-project" class="in-toc">Your first Phrozn project</h2>
@@ -47,7 +47,7 @@ All those files/directories are created in <code>public_html/.phrozn</code> fold
     <tr>
         <td><code>config.yml</code></td>
         <td>Site wide configuration file. For details see 
-        <a href="/en/documentation/site-config/">Site Configuration</a> page.</td>
+        <a href="{{this.basepath}}en/documentation/site-config/">Site Configuration</a> page.</td>
     </tr>
     <tr>
         <td><code>layouts</code></td>
@@ -56,8 +56,8 @@ All those files/directories are created in <code>public_html/.phrozn</code> fold
     <tr>
         <td><code>entries</code></td>
         <td>Folder containing posts/entries of your site. You can create entries in one of the <a
-                href="/en/documentation/processors/">supported input formats</a>.
-            Alternatively, you can <a href="/en/documentation/articles/create-custom-processor/">define your own</a>.</td>
+                href="{{this.basepath}}en/documentation/processors/">supported input formats</a>.
+            Alternatively, you can <a href="{{this.basepath}}en/documentation/articles/create-custom-processor/">define your own</a>.</td>
     </tr>
     <tr>
         <td><code>scripts</code></td>
@@ -128,7 +128,7 @@ layout: main.twig
 <p>Entry above is in Twig format (see "twig" extension") but can be in Markdown or Textile. Just change the extension
 of entry file (twig, textile, markdown etc), and Phrozn will apply respective processor. 
 As mentioned before, you can have your own formats as well
-- see documentation on <a href="/en/documentation/articles/create-custom-processor/">creation of custom text processors.</a>
+- see documentation on <a href="{{this.basepath}}en/documentation/articles/create-custom-processor/">creation of custom text processors.</a>
 </p>
 <p>
 Now let's review front matter. 
@@ -182,10 +182,10 @@ permalink: /sub/folder/:title/
 </p>
 <p>
 As you see, other front matter variables are
-available in default permalink strategy (see <a href="/en/documentation/permalinks/">Permalink Strategies</a>). 
+available in default permalink strategy (see <a href="{{this.basepath}}en/documentation/permalinks/">Permalink Strategies</a>). 
 In this case <code>:title</code> variable was used as a part of final string (additional filtering applied to make it valid URL).</p>
 <p>
-There are number of <a href="/en/documentation/front-matter/">other options</a> available in entry's front matter.
+There are number of <a href="{{this.basepath}}en/documentation/front-matter/">other options</a> available in entry's front matter.
 </p>
 
 <h2 id="project-update" class="in-toc">Keep your project up to date</h2>
