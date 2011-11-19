@@ -1,3 +1,4 @@
+layout: default.twig
 permalink: /en/documentation/providers/
 ---
 <h1 id="main">Content Providers</h1>
@@ -5,7 +6,7 @@ permalink: /en/documentation/providers/
 
 <h2 id="core" class="in-toc">Introduction</h2>
 <p>
-Sometimes you need to use external data within your Phrozn pages. 
+Sometimes you need to use external data within your Phrozn pages.
 For the most obvious example, let's assume you have an RSS feed and want to display it's contents
 on some Phrozn page. Content providers are exactly for this kind of tasks.
 </p>
@@ -15,8 +16,8 @@ Layer between your entity templates and whatever data you need to feature on tho
 </p>
 
 <p>
-Content providers may be as simple as some array of elements you want to traverse within your templates. 
-They can be more quite complex as well, involving fetching data from some external service, process it and 
+Content providers may be as simple as some array of elements you want to traverse within your templates.
+They can be more quite complex as well, involving fetching data from some external service, process it and
 then inject into templates.
 </p>
 
@@ -32,7 +33,7 @@ Base namespace used for plugin code is <code>PhroznPlugin</code>.
 namespace Phrozn;
 use Phrozn\Has;
 
-interface Provider 
+interface Provider
     extends Has\Config,
             Has\ProjectPath
 {
@@ -45,15 +46,15 @@ interface Provider
 }
 </pre>
 <p>As you see, interface is pretty simple with only one relevant method - that's <code>get()</code> method.
-Other methods are inherited from <code>Has\Config</code> and <code>Has\ProjectPath</code> interfaces and are 
+Other methods are inherited from <code>Has\Config</code> and <code>Has\ProjectPath</code> interfaces and are
 used to inject extra configuration and project path respectively.</p>
 <p>
-In order to simplify the creation of new content providers, Phrozn comes with base class that implements 
+In order to simplify the creation of new content providers, Phrozn comes with base class that implements
 all this auxiliary functionality, and the only method you generally need to implement is <code>\Phrozn\Provider::get()</code>.
 </p>
 <p>
-Any data returned from <code>get()</code> method can be injected into templates. While you can return scalars, 
-it is more common to return arrays, and if you need scalar it is more convinient to expose it via 
+Any data returned from <code>get()</code> method can be injected into templates. While you can return scalars,
+it is more common to return arrays, and if you need scalar it is more convinient to expose it via
 Front Matter's <a href="/en/documentation/front-matter/#custom-variables">custom variables</a>.
 </p>
 
@@ -82,14 +83,14 @@ providers:
     <tr>
         <td><code>provider</code></td>
         <td>
-        Class name of the Content Provider class. 
+        Class name of the Content Provider class.
         <br />This class must implement <code>\Phrozn\Provider</code> interface.
         </td>
     </tr>
     <tr>
         <td><code>param(s)</code></td>
         <td>
-            You can pass any named parameters to provider class, thus allowing parametrization. 
+            You can pass any named parameters to provider class, thus allowing parametrization.
             Parameters are optional, and if passed can be accessed within provider class by
             using <code>\Phrozn\Provider::getConfig()</code> method.
         </td>
@@ -97,20 +98,20 @@ providers:
 </table>
 
 <p>
-As you can see, <code>providers</code> variable is a list, implying that you may have several 
-different providers within the single entry. You can even expose the very same provider under 
+As you can see, <code>providers</code> variable is a list, implying that you may have several
+different providers within the single entry. You can even expose the very same provider under
 different keys (and using different parameters). See example below, which does exactly that.
 </p>
 
 
 <h2 id="primarchs-list-example" class="in-toc">Simple Example (List of Primarchs)</h2>
 <p>
-Let's start simple and create very basic Content Provider, the one that will only inject bunch of strings into 
+Let's start simple and create very basic Content Provider, the one that will only inject bunch of strings into
 our template.
 </p>
 
 <p>Here is our simple provider that injects the
-names of <a href="http://warhammer40k.wikia.com/wiki/Primarch">Primarchs</a> into an entry. 
+names of <a href="http://warhammer40k.wikia.com/wiki/Primarch">Primarchs</a> into an entry.
 Standard location for processor classes is <code>plugins/Provider</code>, so we save this as
 <code>plugins/Provider/Primarchs.php</code>:</p>
 
@@ -119,7 +120,7 @@ namespace PhroznPlugin\Provider;
 
 class Primarchs
     extends \Phrozn\Provider\Base
-    implements \Phrozn\Provider 
+    implements \Phrozn\Provider
 {
     private $primarchs = array(
         array("Lion El'Jonson",           "Dark Angels",                  "Loyal"),
@@ -147,9 +148,9 @@ class Primarchs
         // get reference to configuration object (it holds passed vars, if any)
         $config = $this-&gt;getConfig();
 
-        // form list, replacing numeric keys with associative 
+        // form list, replacing numeric keys with associative
         // you can get rid of this by updating original array
-        $primarchs = array_map(function ($item) { 
+        $primarchs = array_map(function ($item) {
             return array(
                 'name'          =&gt; $item[0],
                 'legion'        =&gt; $item[1],
@@ -169,7 +170,7 @@ class Primarchs
 }
 </pre>
 
-<p>If it doesn't make sense just yet, don't worry it will in a minute. Here is corresponding entry file 
+<p>If it doesn't make sense just yet, don't worry it will in a minute. Here is corresponding entry file
 <code>provider.primarchs.twig</code>:</p>
 <pre class="html">
 providers:
@@ -181,7 +182,7 @@ providers:
     loyal_primarchs:
         provider: Primarchs
         allegiance: Loyal
----
+---&nbsp;
 &lt;h1 id=&quot;all-primarchs&quot;&gt;All Primarchs:&lt;/h1&gt;
 &lt;ul&gt;
 {% raw %}{% for primarch in this.providers.all_primarchs %}

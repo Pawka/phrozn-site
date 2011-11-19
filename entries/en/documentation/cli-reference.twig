@@ -8,7 +8,7 @@ permalink: /en/documentation/cli-phr/
 <pre class="no-highlight" style="width:590px;">
   <span class="variable">$</span> <span class="command">phr help</span>
   usage: phrozn &lt;command&gt; [options] [args]
-  
+
   Type 'phrozn help &lt;command&gt;' for help on a specific command.
   Type 'phrozn ? help' for help on using help.
 </pre>
@@ -36,7 +36,7 @@ permalink: /en/documentation/cli-phr/
 <pre class="no-highlight">
     <span class="variable">$</span> <span class="command">mkdir</span> my-phrozn-project
     <span class="variable">$</span> <span class="command">cd</span> my-phrozn-project
-    <span class="variable">$</span> <span class="command">phr init</span> 
+    <span class="variable">$</span> <span class="command">phr init</span>
 </pre>
 <p>Or you can specify project directory explicitly:</p>
 <pre class="no-highlight">
@@ -82,26 +82,26 @@ You can manually simulate the clobber command by removing project directory <cod
 </p>
 <p class="warning">USE WITH CAUTION!! Once you purge the project, all changes are lost (albeit they are preserved in
 repo).</p>
-<p>For further info:</p> 
+<p>For further info:</p>
 <pre>
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">clobber</span>
 </pre>
 
 <h2 id="phr-bundle" class="in-toc">phr bundle</h2>
 <p>
-Phrozn bundles are just archived directories with pluggable code that can be 
+Phrozn bundles are just archived directories with pluggable code that can be
 applied to any Phrozn project. Functionality contained within bundle is decoupled
 from the rest of the project, thus can be effortlessly reused.</p>
 <p>For instance, consider that you've <a href="/en/documentation/articles/create-custom-processor/">implemented some processor</a>
-for Project A. Moving that implementation to bundle will allow you to apply 
+for Project A. Moving that implementation to bundle will allow you to apply
 the very same processor to any future project using single <code>phr bundle</code> command.
 </p>
 <p class="note">
-Make sure you run <code>phr bundle</code> command from within Phrozn project 
+Make sure you run <code>phr bundle</code> command from within Phrozn project
 directory (directory containing <code>.phrozn</code>) or from within <code>.phrozn</code> folder itself.</p>
 <p>
-Bundle command accepts 4 different subcommands: 
-<code>list</code>, 
+Bundle command accepts 4 different subcommands:
+<code>list</code>,
 <code>info</code>,
 <code>apply</code>,
 <code>clobber</code>
@@ -127,7 +127,7 @@ Bundle command accepts 4 different subcommands:
 
 <p>
 When listing bundles you may pass <i>bundle name</i> as additional parameter.
-<code>bundle list</code> command is smart enough to filter results using provided search string. 
+<code>bundle list</code> command is smart enough to filter results using provided search string.
 </p>
 <p>
 For example, to list all <i>installed</i> bundles having "test" sting in their names:
@@ -183,7 +183,7 @@ For example, to list all <i>installed</i> bundles having "test" sting in their n
 
 
 <div class="clear" style="height:20px;"></div>
-<p>For further info:</p> 
+<p>For further info:</p>
 <pre>
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">bundle</span>
 </pre>
