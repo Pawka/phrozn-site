@@ -103,14 +103,18 @@ img {
             font-family: "Lucida Grande",Helvetica,Arial,Sans-serif;
             line-height: 1.2em;
         }
+
         #thingy {
-            background: url("/media/img/elephanto.png") no-repeat scroll 0 0 transparent;
+            background: url("/media/img/elephanto-sprite.png") no-repeat 0 0;
             position: absolute;
             width: 326px;
             height: 266px;
             right: 15px;
             top: 47px;
+
+            &.breathing { background-position: -1px -266px; }
         }
+
         ul#nav {
             position: absolute;
             font-size: @pageFontSize - 4;
