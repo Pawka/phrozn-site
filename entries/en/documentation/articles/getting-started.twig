@@ -18,7 +18,7 @@ permalink: /en/documentation/articles/getting-started/
 <pre class="no-highlight">
 <span class="variable">$</span> <span class="command">mkdir</span> public_html
 <span class="variable">$</span> <span class="command">cd</span> public_html
-<span class="variable">$</span> <span class="command">phr init</span> 
+<span class="variable">$</span> <span class="command">phr init</span>
 </pre>
 <p>Here we create <code>public_html</code> folder and within it initialize our new Phrozn project. The output will look
 something like this:</p>
@@ -46,7 +46,7 @@ All those files/directories are created in <code>public_html/.phrozn</code> fold
     </tr>
     <tr>
         <td><code>config.yml</code></td>
-        <td>Site wide configuration file. For details see 
+        <td>Site wide configuration file. For details see
         <a href="/en/documentation/site-config/">Site Configuration</a> page.</td>
     </tr>
     <tr>
@@ -79,6 +79,12 @@ All those files/directories are created in <code>public_html/.phrozn</code> fold
 </table>
 
 <h2 id="create-project-entries" class="in-toc">Create some content</h2>
+<p class="note">
+You can skip this step and jump to <a href="/en/documentation/articles/getting-started/#project-compilation">Site
+Compilation</a> immediately. Then once you have static site compiled and
+want to tweak it more - get back and read this section.<br /><br />
+For those of you who want to see the output immediately, sample site has been created: <a target="_blank" href="http://sample.phrozn.info">sample.phrozn.info</a>.
+</p>
 <p>
 First of all, let's start with creating our main layout file, <code>.phrozn/layouts/main.twig</code>
 </p>
@@ -87,17 +93,17 @@ First of all, let's start with creating our main layout file, <code>.phrozn/layo
 &lt;html lang=&quot;en&quot;&gt;
   &lt;head&gt;
     &lt;title&gt;My Webpage&lt;/title&gt;
-    &lt;link href=&quot;/styles/default.css&quot; 
+    &lt;link href=&quot;/styles/default.css&quot;
           rel=&quot;stylesheet&quot; media=&quot;screen, projection&quot; type=&quot;text/css&quot; /&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1&gt;My Webpage&lt;/h1&gt;
     {{ '{{' }}content{{ '}}'}}
   &lt;/body&gt;
-&lt;/html&gt; 
+&lt;/html&gt;
 </pre>
 <p>
-The only special thing here is <code>{{ '{{' }}content{{ '}}'}}</code> place-holder, which defines the place 
+The only special thing here is <code>{{ '{{' }}content{{ '}}'}}</code> place-holder, which defines the place
 where entry's content is to be injected into layout.
 </p>
 <p>
@@ -121,19 +127,19 @@ directory hierarchies which (depending on your settings) can be preserved in you
 </p>
 <pre>
 layout: main.twig
----
+---&nbsp;
 &lt;p&gt;My first entry&lt;/p&gt;
 </pre>
 
 <p>Entry above is in Twig format (see "twig" extension") but can be in Markdown or Textile. Just change the extension
-of entry file (twig, textile, markdown etc), and Phrozn will apply respective processor. 
+of entry file (twig, textile, markdown etc), and Phrozn will apply respective processor.
 As mentioned before, you can have your own formats as well
 - see documentation on <a href="/en/documentation/articles/create-custom-processor/">creation of custom text processors.</a>
 </p>
 <p>
-Now let's review front matter. 
-<code>layout</code> setting is completely optional, it defaults to <code>default.twig</code>, which means 
-<code>.phrozn/layouts/default.twig</code> is to be used as layout file. Since we created our custom layout file, we set 
+Now let's review front matter.
+<code>layout</code> setting is completely optional, it defaults to <code>default.twig</code>, which means
+<code>.phrozn/layouts/default.twig</code> is to be used as layout file. Since we created our custom layout file, we set
 this option to <code>main.twig</code>.
 </p>
 
@@ -173,7 +179,7 @@ setting:
 layout: main.twig
 title: My readable page title
 permalink: /sub/folder/:title/
----
+---&nbsp;
 &lt;p&gt;My first entry&lt;/p&gt;
 </pre>
 <p>When you re-run <code>phr up</code> the entry will be written into<br />
@@ -182,7 +188,7 @@ permalink: /sub/folder/:title/
 </p>
 <p>
 As you see, other front matter variables are
-available in default permalink strategy (see <a href="/en/documentation/permalinks/">Permalink Strategies</a>). 
+available in default permalink strategy (see <a href="/en/documentation/permalinks/">Permalink Strategies</a>).
 In this case <code>:title</code> variable was used as a part of final string (additional filtering applied to make it valid URL).</p>
 <p>
 There are number of <a href="/en/documentation/front-matter/">other options</a> available in entry's front matter.

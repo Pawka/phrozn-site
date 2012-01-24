@@ -1,3 +1,4 @@
+layout: default.twig
 permalink: /en/documentation/articles/create-custom-processor/
 ---
 <h1 id="main">Create custom markup processor</h1>
@@ -20,7 +21,7 @@ permalink: /en/documentation/articles/create-custom-processor/
 </p>
 <pre class="php">
 namespace Phrozn;
-interface Processor 
+interface Processor
 {
     /**
      * Parse the incoming template
@@ -50,7 +51,7 @@ interface Processor
 }
 </pre>
 <p>
-Standard location for processor classes is <code>plugins/Processor</code>: 
+Standard location for processor classes is <code>plugins/Processor</code>:
 </p>
 
 <pre class="php">
@@ -59,7 +60,7 @@ namespace PhroznPlugin\Processor;
 
 class Test
     extends \Phrozn\Processor\Base
-    implements \Phrozn\Processor 
+    implements \Phrozn\Processor
 {
     public function render($tpl, $vars = array())
     {
@@ -85,12 +86,12 @@ So far we have Test processor which simply wraps incoming template into &lt;b&gt
 <h2 id="create-view" class="in-toc">2. Create View</h2>
 <p>
 For rendering given entry into static HTML page, you need to create content rendering View class.
-Basically, whenever Phrozn encounters file with extension that matches name of some 
+Basically, whenever Phrozn encounters file with extension that matches name of some
 registered View class, object of this class is used for rendering.
 </p>
 <p>
-So, all *.twig files, for instance, are actually compiled using 
-<code>\Phrozn\Site\View\Twig</code> class, which in turn uses 
+So, all *.twig files, for instance, are actually compiled using
+<code>\Phrozn\Site\View\Twig</code> class, which in turn uses
 <code>\Phrozn\Processor\Twig</code> text processor for rendering.
 </p>
 
@@ -105,13 +106,13 @@ View classes MUST implement <code>\Phrozn\Site\View</code> interface:
 <pre class="php">
 namespace Phrozn\Site;
 use Phrozn\Has;
-interface View 
-    extends 
+interface View
+    extends
         Has\SiteConfig,
-        Has\InputFile, 
-        Has\OutputFile, 
-        Has\OutputDir, 
-        Has\Param, 
+        Has\InputFile,
+        Has\OutputFile,
+        Has\OutputDir,
+        Has\Param,
         Has\Processors,
         Has\FrontMatter,
         Has\Template
@@ -137,9 +138,9 @@ interface View
 }
 </pre>
 
-<p>As you can see, this interface relies on many other interfaces 
+<p>As you can see, this interface relies on many other interfaces
 (yep, I am fan of <a href="http://en.wikipedia.org/wiki/Interface_segregation_principle">ISP</a>),
-which makes it harder for clients to implement <code>\Phrozn\Site\View</code> directly. 
+which makes it harder for clients to implement <code>\Phrozn\Site\View</code> directly.
 Fortunately, as with processors, we have base implementation <code>\Phrozn\Site\View\Base</code>
 which takes care of most of the auxiliary methods, thus
 allowing to concentrate only on methods directly related to rendering.
@@ -153,7 +154,7 @@ allowing to concentrate only on methods directly related to rendering.
 namespace PhroznPlugin\Site\View;
 use PhroznPlugin\Processor;
 
-class Test 
+class Test
     extends \Phrozn\Site\View\Base
     implements \Phrozn\Site\View
 {
@@ -190,13 +191,13 @@ class Test
 </p>
 <pre class="html">
 # .phrozn/entries/tmp/sample.test
----
+---&nbsp;
 This entry should be rendered with \PhroznPlugin\Site\View\Test View renderer.
 </pre>
 
 <p>
 As you will immediately notice your entry was rendered without layout applied.
-In order to enable entry rendering within layout 
+In order to enable entry rendering within layout
 (which layout to use with given entry is settable via front matter) we will need
 to override <code>render()</code> method:
 </p>
@@ -205,7 +206,7 @@ to override <code>render()</code> method:
 namespace PhroznPlugin\Site\View;
 use PhroznPlugin\Processor;
 
-class Test 
+class Test
     extends \Phrozn\Site\View\Base
     implements \Phrozn\Site\View
 {
