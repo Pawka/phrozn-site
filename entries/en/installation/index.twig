@@ -16,9 +16,6 @@ you can have them too.</p>
 
 <h2 id="composer" class="in-toc">Use Composer</h2>
 <p>
-Navigate to a folder you want installation to live in.
-</p>
-<p>
 If you do not have Composer installed, install it first:
 </p>
 <pre>
@@ -28,13 +25,13 @@ If you do not have Composer installed, install it first:
   Once Composer is installed, proceed with Phrozn installation:
 </p>
 <pre>
-  php composer.phar init --require="farazdagi/phrozn:master" --no-interaction
-  php composer.phar install
+  php composer.phar create-project farazdagi/phrozn phrozn
+  cd phrozn
 </pre>
 
 <p>You can then symlink <code>phr</code> executable located in <code>bin</code> folder:</p>
 <pre>
-  sudo ln -s bin/phrozn.php /usr/local/bin/phr
+  sudo ln -s `pwd`/bin/phrozn.php /usr/local/bin/phr
 </pre>
 
 <br />
