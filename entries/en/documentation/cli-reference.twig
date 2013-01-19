@@ -68,6 +68,23 @@ altogether:</p>
     <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">up</span>
 </pre>
 
+<h2 id="phr-single" class="in-toc">phr single</h2>
+<p>
+Single command is used to create/update a single static page.
+</p>
+<p><code>phr single</code> accepts three arguments: the first one is input file to process, the second one
+is the source directory and the third one is the output folder. However, latest two arguments are optional and
+use the current working directory, you generally omit them altogether:</p>
+<pre>
+    <span class="variable">$</span> <span class="command">cd</span> my-phrozn-project
+    <span class="variable">$</span> <span class="command">phr single path/to/my/file.ext</span>
+</pre>
+
+<p>For further info:</p>
+<pre class="no-highlight">
+    <span class="variable">$</span> <span class="command">phr</span> ? <span class="command">single</span>
+</pre>
+
 <h2 id="phr-clobber" class="in-toc">phr clobber</h2>
 <p>
 This command locates and removes Phrozn project directory, effectively deleting all user generated content.
