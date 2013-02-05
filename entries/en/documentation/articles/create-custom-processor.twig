@@ -10,7 +10,7 @@ permalink: /en/documentation/articles/create-custom-processor/
 </p>
 <div class="clear"></div>
 <p class="warning">
-    All extension classes MUST reside in <code>.phrozn/plugins</code> folder.<br />
+    All extension classes MUST reside in <code>.phrozn/plugins/PhroznPlugin</code> folder.<br />
     Base namespace used for plugin code is <code>PhroznPlugin</code>.
 </p>
 
@@ -51,7 +51,7 @@ interface Processor
 }
 </pre>
 <p>
-Standard location for processor classes is <code>plugins/Processor</code>:
+Standard location for processor classes is <code>plugins/PhroznPlugin/Processor</code>:
 </p>
 
 <pre class="php">
@@ -147,7 +147,7 @@ allowing to concentrate only on methods directly related to rendering.
 </p>
 
 <p>
-    Standard location for your View renderers is <code>plugins/Site/View</code>:
+    Standard location for your View renderers is <code>plugins/PhroznPlugin/Site/View</code>:
 </p>
 <pre class="php">
 // .phrozn/plugins/Site/View/Test.php
@@ -202,7 +202,7 @@ In order to enable entry rendering within layout
 to override <code>render()</code> method:
 </p>
 <pre>
-// .phrozn/plugins/Site/View/Test.php
+// .phrozn/plugins/PhroznPlugin/Site/View/Test.php
 namespace PhroznPlugin\Site\View;
 use PhroznPlugin\Processor;
 
