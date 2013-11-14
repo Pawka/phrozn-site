@@ -1,3 +1,7 @@
+h1. DEPRECATION WARNING
+
+This repository is no longer maintained. Source code of "phrozn.info":http://www.phrozn.info site is on "gh-pages":https://github.com/Pawka/phrozn/tree/gh-pages branch of "Pawka/phrozn":https://github.com/Pawka/phrozn project.
+
 h1. phrozn.info site
 
 Project's own site "phrozn.info":http://www.phrozn.info is generated using "Phrozn":https://github.com/farazdagi/phrozn - static site generator for PHP.
